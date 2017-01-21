@@ -13,7 +13,7 @@ export const PAGES_MENU = [
             order: 0
           }
         }
-      }/*,
+      },
       {
         path: 'editors',
         data: {
@@ -30,12 +30,12 @@ export const PAGES_MENU = [
             path: 'ckeditor',
             data: {
               menu: {
-                title: 'CKEditor',
+                title: 'Recipe',
               }
             }
           }
         ]
-      },
+      }/*,
       //{
       //  path: 'components',
       //  data: {
