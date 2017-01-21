@@ -14,6 +14,18 @@ export const PAGES_MENU = [
           }
         }
       },
+	  {
+        path: 'recent',
+        data: {
+          menu: {
+            title: 'Recent Recipes',
+            icon: 'ion-stats-bars',
+            selected: false,
+            expanded: false,
+            order: 1
+          }
+        }
+      },
       {
         path: 'editors',
         data: {
