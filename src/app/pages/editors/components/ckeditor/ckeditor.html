@@ -1,9 +1,9 @@
-<div class="col-md-9">
+<div class="col-md-9" *ngIf="recipe">
 
 	<div class="row">
 		<div class="col-md-12">
-			<ba-card baCardClass="with-scroll"> 
-			<p>Picture Goes Here</p>
+			<ba-card baCardClass="with-scroll" [title]="recipe.title"> 
+			<img src="{{recipe.img}}" style="width:"/>
 			</ba-card>
 		</div>
 	</div>
@@ -15,11 +15,26 @@
 			</ba-card>	
 		</div>
 	</div>	
+	<div class="row">
+		<div class="col-md-12">
+			<ba-card title="Ingrediants" baCardClass="with-scroll" >
+			<ul>
+				<li *ngFor="let ingrediant of recipe.ingredients">
+					{{ingrediant}}
+				</li>
+			</ul>
+			</ba-card>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-12">
-			<ba-card title="Full Recipe" baCardClass="with-scroll medium-card" >
-			<p>RAWR</p>
+			<ba-card title="Full Recipe" baCardClass="with-scroll" >
+			<ul>
+				<li *ngFor="let step of recipe.instructions">
+					{{step}}
+				</li>
+			</ul>
 			</ba-card>
 		</div>
 	</div>
