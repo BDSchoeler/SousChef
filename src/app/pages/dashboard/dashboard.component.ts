@@ -10,5 +10,9 @@ export class Dashboard {
 
   constructor() {
   }
+  
+  searchForRecipe(food) {
+	console.log("Searching for " + food);
+  }
 
 }
