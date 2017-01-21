@@ -24,7 +24,7 @@ export class Dashboard {
 		console.log("Error")
 		console.log(err);
 	});*/
-	this.http.get("https://pumpout.anyhowstep.com/recipes/search/cookie").toPromise().then( res =>{
+	this.http.get("https://pumpout.anyhowstep.com/recipes/search/"+food).toPromise().then( res =>{
 		console.log("found result");
 		console.log(res.json().results);
 		this.recipes=res.json().results;
