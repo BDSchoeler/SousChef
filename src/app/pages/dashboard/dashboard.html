@@ -67,6 +67,11 @@
 
 <ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
                title="Results" baCardClass="small-card">
+    <ul>
+     <li *ngFor="let recipe of recipes">
+        {{recipe.id}}
+      </li>
+    </ul>
   
 </ba-card>
 
