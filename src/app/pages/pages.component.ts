@@ -11,7 +11,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
         <ba-content-top></ba-content-top>
         <router-outlet></router-outlet>
       </div>
-    </div>
+    </div><!--
     <footer class="al-footer clearfix">
       <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
       <div class="al-footer-main clearfix">
@@ -23,7 +23,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
           <li><i class="socicon socicon-github"></i></li>
         </ul>
       </div>
-    </footer>
+    </footer>-->
     <ba-back-top position="200"></ba-back-top>
     `
 })
