@@ -51,12 +51,22 @@
   </ba-card>
 </div>
 !-->
-<div class="form-group">
-	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<label for="input01">What would you like to make?</label>
-		<input type="text" class="form-control" id="input01" placeholder="Enter a food or drink" #food>
-		<button type="submit" (click)="searchForRecipe(food.value)">Submit</button>
-	</div>
- </div>
+<ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+               title="Search For Recipe">
+  <div class="form-group" style="height:100px">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	   	<label for="input01">What would you like to make?</label>
+		  <input type="text" class="form-control" id="input01" placeholder="Enter a food or drink" #food>
+		  
+      <div class="button-wrapper" style="padding-top: 10px">
+          <button type="button" class="btn btn-danger btn-lg" (click)="searchForRecipe(food.value)">Submit</button>
+      </div>
+    </div>
+  </div>
+</ba-card>
 
+<ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+               title="Results" baCardClass="small-card">
+  
+</ba-card>
 
