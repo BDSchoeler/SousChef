@@ -3,11 +3,13 @@
   <div class="form-group" style="height:100px">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	   	<label for="input01">What would you like to make?</label>
+		<form (submit)="searchForRecipe(food.value)"> 
 		  <input type="text" class="form-control" id="input01" placeholder="Enter a food" #food>
 		  
-      <div class="button-wrapper" style="padding-top: 10px">
-          <button type="button" class="btn btn-danger btn-lg" (click)="searchForRecipe(food.value)">Submit</button>
-      </div>
+		  <div class="button-wrapper" style="padding-top: 10px">
+			  <button type="button" class="btn btn-danger btn-lg" (click)="searchForRecipe(food.value)">Submit</button>
+		  </div>
+		</form>
     </div>
   </div>
 </ba-card>
