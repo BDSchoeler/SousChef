@@ -25,7 +25,7 @@ export const PAGES_MENU = [
             order: 1
           }
         }
-      },
+      }/*,
       {
         path: 'editors',
         data: {
