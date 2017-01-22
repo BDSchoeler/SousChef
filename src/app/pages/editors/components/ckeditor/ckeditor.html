@@ -1,60 +1,82 @@
-<div class="col-md-9" *ngIf="recipe">
+<div *ngIf="recipe">
 
+	<!-- Top Banner Recipe Title and Image -->
 	<div class="row">
 		<div class="col-md-12">
 			<ba-card baCardClass="with-scroll" [title]="recipe.title"> 
-			<img src="{{recipe.img}}" style="width:"/>
+			<div *ngIf="recipe.img!=null" style="text-align:center;">
+				<img style="width:500px;height:200px; horizontal-align:center;"src="{{recipe.img}}"/>
+			</div>
 			</ba-card>
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col-md-12">
-			<ba-card title="Current Step" baCardClass="with-scroll">
-				<p>Step 1: What is love?</p>
-			</ba-card>	
+	<!-- Steps and Ingredients -->
+	<div class="col-md-7">
+	
+		<div class="row">
+			<div class="col-md-12">
+				<ba-card title="Current Step" baCardClass="with-scroll">
+					<p>Step 1: What is love?</p>
+				</ba-card>	
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-md-12">
+				<ba-card title="Ingredients" baCardClass="with-scroll" >
+				<ul>
+					<li *ngFor="let ingredient of recipe.ingredients">
+						{{ingredient}}
+					</li>
+				</ul>
+				</ba-card>
+			</div>
 		</div>
-	</div>	
-	<div class="row">
-		<div class="col-md-12">
-			<ba-card title="Ingrediants" baCardClass="with-scroll" >
-			<ul>
-				<li *ngFor="let ingrediant of recipe.ingredients">
-					{{ingrediant}}
-				</li>
-			</ul>
-			</ba-card>
+
+		<div class="row">
+			<div class="col-md-12">
+				<ba-card title="Full Recipe" baCardClass="with-scroll" >
+				<ol>
+					<li *ngFor="let step of recipe.instructions">
+						{{step}}
+					</li>
+				</ol>
+				</ba-card>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<ba-card title="Full Recipe" baCardClass="with-scroll" >
-			<ul>
-				<li *ngFor="let step of recipe.instructions">
-					{{step}}
-				</li>
-			</ul>
-			</ba-card>
-		</div>
-	</div>
-</div>
+	<!-- Interactions -->
+	<div class="col-md-5">
 
-<div class="col-md-3">
-
-	<ba-card title="Interaction" baCardClass="with-scroll button-panel medium-card">
-		<div style="margin-left:5px;">
+		<ba-card title="Interaction" baCardClass="with-scroll button-panel large-card">
+			<div style="margin-left:5px;">
+					
+				<div class="button-wrapper" style="padding-bottom:115px;">
+					<button type="button" class="btn btn-danger btn-raised" style="height:100px; width:190px;">Talk</button>
+				</div>
 				
-			<div class="button-wrapper" style="padding-bottom:115px;">
-				<button type="button" class="btn btn-danger btn-raised" style="height:100px; width:190px;">Talk</button>
-			</div>
-			<div class="button-wrapper" style="padding-bottom:115px;">
-				<button type="button" class="btn btn-warning btn-raised" style="height:100px; width:190px;">Timer</button>
-			</div>
+				<div class="btn-group-example">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-danger" style="height:100px; width:190px;">>Prev</button>
+						<button type="button" class="btn btn-danger">Next</button>
+					</div>
+					<div style="text-align:center;">
+					  <div class="btn-group" role="group">
+						<button type="button" class="btn btn-danger">Repeat</button>
+					  </div>
+					</div>
+				</div>
 			
-			<p>
-					Timer should appear here
-			</p>
-		</div>
-	</ba-card>
+				<div class="col-md-6 button-wrapper" style="padding-bottom:115px;"> 
+					<button type="button" class="btn btn-warning btn-raised" style="height:100px; width:190px;">Timer</button>
+				</div>
+		
+				
+				<p>
+						Timer should appear here
+				</p>
+			</div>
+		</ba-card>
+	</div>
 </div>
