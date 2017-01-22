@@ -17,13 +17,18 @@ import './ckeditor.loader.ts';
 })
 
 export class Ckeditor {
+  buttonText="Start";
+  currentStepValue="Click start to begin cooking";
   recipeId=1583;
   recipe;
+
+  currentStep=-1;
+
   minute;
   second;
   timerDone:boolean = false;
   timer;
-  currentStep=0;
+
   public ckeditorContent:string = '<p>Hello CKEditor</p>';
   public config = {
     uiColor: '#F0F3F4',
@@ -42,18 +47,32 @@ export class Ckeditor {
   //let test= new tts.tts();
   
   }
+  startRecipe(){
+    console.log(this.currentStep);
+    if(this.currentStep ==-1){
+    this.currentStep = this.currentStep+1;
+    this.currentStepValue=this.recipe.instructions[this.currentStep]
+    console.log(this.currentStep);
+    this.buttonText="Talk";
+  }
+
+  }
   
   goToNext() {
 	if(this.currentStep<this.recipe.instructions.length) {
 		console.log("going to next step");
 		this.currentStep = this.currentStep+1;
-	}
+    this.currentStepValue=this.recipe.instructions[this.currentStep]
+	}else{
+    this.currentStepValue="End of recipe. Enjoy!";
+  }
   }
   
   goToPrev() {
 	if(this.currentStep>0) {
 		console.log("going to previous step");
 		this.currentStep = this.currentStep-1;
+    this.currentStepValue=this.recipe.instructions[this.currentStep];
 	}
   }
 

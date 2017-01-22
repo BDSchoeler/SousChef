@@ -1,7 +1,4 @@
-  <form onsubmit="tts(); return false;">
-    <input class="form-control" id="text" type="text" placeholder="Text" autofocus/>
-    <input class="form-control" type="submit" value="TTS"/>
-  </form>
+ 
 
 
 <div *ngIf="recipe">
@@ -23,8 +20,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ba-card title="Current Step" baCardClass="with-scroll">
-					<p *ngIf="currentStep < (recipe.instructions.length)">{{recipe.instructions[currentStep]}}</p>
-					<p *ngIf="currentStep == (recipe.instructions.length)">End of recipe. Enjoy!</p>
+				 <form onsubmit="tts(); return false;">
+    				<input class="form-control" id="text" type="text" placeholder="Text" autofocus [value]="currentStepValue"/>
+  				</form>
 				</ba-card>	
 			</div>
 		</div>	
@@ -70,7 +68,9 @@
 			
 				<div >
 					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger"  style="height:80px; width:250px;">Talk</button>
+					<form onsubmit="tts(); return false;">
+						<button type="submit" class="btn btn-danger"  style="height:80px; width:250px;" (click)="startRecipe()">{{buttonText}}</button>
+					</form>
 					</div>
 				</div>
 			
@@ -78,9 +78,11 @@
 				
 				<div>
 					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToPrev()">Prev</button>
-						<button type="button" class="btn btn-danger"  style="height:75px; width:110px;">Repeat</button>
-						<button type="button" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToNext()">Next</button>
+					<form onsubmit="tts(); return false;">
+						<button type="submit" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToPrev()">Prev</button>
+						<button type="submit" class="btn btn-danger"  style="height:75px; width:110px;">Repeat</button>
+						<button type="submit" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToNext()">Next</button>
+					</form>
 					</div>
 				</div>
 				
