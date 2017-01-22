@@ -109,11 +109,14 @@ export class Ckeditor {
 	this.timer = Observable.timer(0, 1000);
 	console.log("entered");
 	this.timer.subscribe(t => {
+	
 		if(this.second==0)
 		{
 			if(this.minute ==0)
 			{
 				this.timerDone = true;
+				//Above not needed? just run following method
+				finishedTimer();
 				this.timer.unsubscribe;
 			}
 			else
@@ -128,6 +131,15 @@ export class Ckeditor {
 			this.second -= 1;
 		}
 	})
+
+ }
+ 
+ finishedTimer(){
+	//Something should happen when timer runs out.
+	goToNext();
+ }
+ pauseTimer(){
+	 this.timer.unsubscribe;
  }
   
 >>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290

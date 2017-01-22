@@ -38,7 +38,10 @@
 				<ba-card title="Ingredients" baCardClass="with-scroll" >
 				<ul>
 					<li *ngFor="let ingredient of recipe.ingredients">
-						{{ingredient}}
+						<span script="font-size:20;">
+							<input name="checkbox_name" id="checkbox_id" type="checkbox">
+							{{ingredient}}
+						</span>
 					</li>
 				</ul>
 				</ba-card>
@@ -116,7 +119,14 @@
 							<input #secInput [(ngModel)]="second" type="text" class="form-control" id="input2" placeholder="Second" style="height:50px; font-size:15px;">
 						</span>
 				
-				</div>
+					</div>
+					
+					<div>
+						<div class="btn-group" role="group">
+							<button type="submit" class="btn btn-danger" style="height:40px; width:75px;" (click)="pauseTimer()">Pause</button>
+						</div>
+					</div>
+				
 				</ba-card>	
 			</div>
 		</div>
