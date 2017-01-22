@@ -15,7 +15,7 @@ export class Recent {
 	
 	allAdded =false;
 	numberAdded=0;
-	recipeArray=[{title:"Nutella-Filled Chocolate Cupcakes with Nutella Buttercream", img:"//www.pws-cdn.com/the-recipe-depository/uploads/1218-corn-cherry-tomato-and-basil-pizza-1444593941.jpg", id:"1218"},
+	recipeArray=[{title:"Corn, Cherry Tomato and Basil Pizza", img:"//www.pws-cdn.com/the-recipe-depository/uploads/1218-corn-cherry-tomato-and-basil-pizza-1444593941.jpg", id:"1218"},
 	{title:"Pasta with Lemon Sauce", img:"//www.pws-cdn.com/the-recipe-depository/uploads/1941-pasta-with-lemon-sauce.jpg", id:"1941"}, 
 	{title:"Deep Dish Caramel Snickers Cookies", img:"//www.pws-cdn.com/the-recipe-depository/uploads/1346-deep-dish-caramel-snickers-cookies.jpg", id:"1346"},
 	{title:"Cheesey Broccoli Bake", img:"//www.pws-cdn.com/the-recipe-depository/uploads/1583-cheesey-broccoli-bake-1441650109.jpg", id:"1583"}
