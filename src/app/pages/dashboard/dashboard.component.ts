@@ -44,4 +44,5 @@ export class Dashboard {
   	this.router.navigate(['/pages/editors/ckeditor/'+ id]);
 
   }
+  
 }

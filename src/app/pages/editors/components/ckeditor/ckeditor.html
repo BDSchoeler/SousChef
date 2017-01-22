@@ -23,14 +23,11 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ba-card title="Current Step" baCardClass="with-scroll">
-<<<<<<< HEAD
-					<p *ngIf="currentStep < (recipe.instructions.length)">{{recipe.instructions[currentStep]}}</p>
-					<p *ngIf="currentStep == (recipe.instructions.length)">End of recipe. Enjoy!</p>
-=======
+
 				 <form onsubmit="tts(); return false;">
     				<input class="form-control" id="text" type="text" placeholder="Text" autofocus [value]="currentStepValue"/>
   				</form>
->>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290
+
 				</ba-card>	
 			</div>
 		</div>	
@@ -89,17 +86,12 @@
 				
 				<div>
 					<div class="btn-group" role="group">
-<<<<<<< HEAD
-						<button type="button" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToPrev()">Prev</button>
-						<button type="button" class="btn btn-danger"  style="height:75px; width:110px;">Repeat</button>
-						<button type="button" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToNext()">Next</button>
-=======
+
 					<form onsubmit="tts(); return false;">
 						<button type="submit" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToPrev()">Prev</button>
 						<button type="submit" class="btn btn-danger"  style="height:75px; width:110px;">Repeat</button>
 						<button type="submit" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToNext()">Next</button>
 					</form>
->>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290
 					</div>
 				</div>
 				
