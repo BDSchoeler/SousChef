@@ -3,10 +3,11 @@
 
 import { Component, ViewEncapsulation } from '@angular/core';
 import {Http, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import './ckeditor.loader.ts';
+
 
 @Component({
   selector: 'ckeditor-component',
@@ -18,6 +19,10 @@ import './ckeditor.loader.ts';
 export class Ckeditor {
   recipeId=1583;
   recipe;
+  minute;
+  second;
+  timerDone:boolean = false;
+  timer;
   currentStep=0;
   public ckeditorContent:string = '<p>Hello CKEditor</p>';
   public config = {
@@ -30,7 +35,6 @@ export class Ckeditor {
     console.log("found result");
     console.log(res.json());
     this.recipe=res.json();
-
   }, err =>{
     console.log("Error")
     console.log(err);
@@ -52,4 +56,31 @@ export class Ckeditor {
 		this.currentStep = this.currentStep-1;
 	}
   }
+
+ startTimer(){
+	console.log("entered");
+	this.timer = Observable.timer(0, 1000);
+	console.log("entered");
+	this.timer.subscribe(t => {
+		if(this.second==0)
+		{
+			if(this.minute ==0)
+			{
+				this.timerDone = true;
+				this.timer.unsubscribe;
+			}
+			else
+			{
+			this.minute -= 1;
+			this.second = 59;	
+			}
+			
+		}
+		else
+		{
+			this.second -= 1;
+		}
+	})
+ }
+  
 }
