@@ -1,6 +1,6 @@
 //declare var drawGauge: any;
 //var tts =require('./tts.js');
-
+import { ActivatedRoute, Params }   from '@angular/router';
 import { Component, ViewEncapsulation } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
@@ -39,15 +39,18 @@ export class Ckeditor {
     height: '600'
   };
 
-  constructor(private http:Http){
-  this.http.get("https://pumpout.anyhowstep.com/recipes/"+this.recipeId).toPromise().then( res =>{
-    console.log("found result");
-    console.log(res.json());
-    this.recipe=res.json();
-  }, err =>{
-    console.log("Error")
-    console.log(err);
+  constructor(private http:Http,private route:ActivatedRoute){
+    this.route.params.forEach((params: Params) => {
+    let recipeId = params['recipeid'];
+      this.http.get("https://pumpout.anyhowstep.com/recipes/"+recipeId).toPromise().then( res =>{
+      this.recipe=res.json();
+      }, err =>{
+        console.log("Error")
+        console.log(err);
+      });
   });
+
+
   //let test= new tts.tts();
   
   }
