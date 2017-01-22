@@ -8,12 +8,13 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ba-card baCardClass="with-scroll" [title]="recipe.title"> 
-			<div *ngIf="recipe.img!=null" style="text-align:center;">
-				<img style="width:500px;height:200px; horizontal-align:center;"src="{{recipe.img}}"/>
+			<div *ngIf="recipe.img" style="text-align:center;">
+				<img style="width:500px;height:200px;horizontal-align:center;" src="{{recipe.img}}"/>
 			</div>
 			</ba-card>
 		</div>
 	</div>
+
 	
 	<!-- Steps and Ingredients -->
 	<div class="col-md-7">
@@ -54,7 +55,7 @@
 
 	<!-- Interactions -->
 	<div class="col-md-5">
-
+	
 		<ba-card title="Interaction" baCardClass="with-scroll">
 		<div styke="height:1000px;">
 			<div style="text-align:center">
