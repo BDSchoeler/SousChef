@@ -94,7 +94,8 @@
 				<br />
 				<ba-card baCardClass="with-scroll">
 					<div class="btn-group" role="group"> 
-						<button type="button" class="btn btn-danger" style="height:80px; width:250px;" (click)="startTimer()" >Timer</button>
+						<button *ngIf="timerOn" type="button" class="btn btn-danger" style="height:80px; width:250px;" (click)="startTimer()" >Timer</button>
+						<button *ngIf="!timerOn" type="button" class="btn btn-danger" style="height:80px; width:250px;" (click)="pauseTimer()" >Pause</button>
 					</div>
 			
 					<br />
@@ -109,13 +110,6 @@
 						</span>
 				
 					</div>
-					
-					<div>
-						<div class="btn-group" role="group">
-							<button type="submit" class="btn btn-danger" style="height:40px; width:75px;" (click)="pauseTimer()">Pause</button>
-						</div>
-					</div>
-				
 				</ba-card>	
 			</div>
 		</div>
