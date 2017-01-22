@@ -1,3 +1,9 @@
+  <form onsubmit="tts(); return false;">
+    <input class="form-control" id="text" type="text" placeholder="Text" autofocus/>
+    <input class="form-control" type="submit" value="TTS"/>
+  </form>
+
+
 <div *ngIf="recipe">
 
 	<!-- Top Banner Recipe Title and Image -->
@@ -17,7 +23,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ba-card title="Current Step" baCardClass="with-scroll">
-					<p>Step 1: What is love?</p>
+					<p *ngIf="currentStep < (recipe.instructions.length)">{{recipe.instructions[currentStep]}}</p>
+					<p *ngIf="currentStep == (recipe.instructions.length)">End of recipe. Enjoy!</p>
 				</ba-card>	
 			</div>
 		</div>	
@@ -71,9 +78,9 @@
 				
 				<div>
 					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-danger" style="height:75px; width:110px;">Prev</button>
+						<button type="button" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToPrev()">Prev</button>
 						<button type="button" class="btn btn-danger"  style="height:75px; width:110px;">Repeat</button>
-						<button type="button" class="btn btn-danger" style="height:75px; width:110px;">Next</button>
+						<button type="button" class="btn btn-danger" style="height:75px; width:110px;" (click)="goToNext()">Next</button>
 					</div>
 				</div>
 				
@@ -101,3 +108,4 @@
 		</ba-card>
 	</div>
 </div>
+

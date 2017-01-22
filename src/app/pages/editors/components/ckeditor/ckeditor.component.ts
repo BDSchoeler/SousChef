@@ -1,3 +1,6 @@
+//declare var drawGauge: any;
+//var tts =require('./tts.js');
+
 import { Component, ViewEncapsulation } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
@@ -20,6 +23,7 @@ export class Ckeditor {
   second;
   timerDone:boolean = false;
   timer;
+  currentStep=0;
   public ckeditorContent:string = '<p>Hello CKEditor</p>';
   public config = {
     uiColor: '#F0F3F4',
@@ -35,7 +39,22 @@ export class Ckeditor {
     console.log("Error")
     console.log(err);
   });
+  //let test= new tts.tts();
   
+  }
+  
+  goToNext() {
+	if(this.currentStep<this.recipe.instructions.length) {
+		console.log("going to next step");
+		this.currentStep = this.currentStep+1;
+	}
+  }
+  
+  goToPrev() {
+	if(this.currentStep>0) {
+		console.log("going to previous step");
+		this.currentStep = this.currentStep-1;
+	}
   }
 
  startTimer(){
