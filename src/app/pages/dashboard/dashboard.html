@@ -18,7 +18,9 @@
 RESULTS
 </ba-card>
 <ba-card *ngFor="let recipe of recipes" class="col-md-6" (click)="redirectToRecipe(recipe.id)"[title]="recipe.title">
+
 	<img style="width:500px;height:200px;horizontal-align:center;" src="{{recipe.img}}" onerror="this.src='http://i63.tinypic.com/20q1kk2.jpg'" />
+
 </ba-card>
 
 
