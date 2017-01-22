@@ -1,3 +1,4 @@
+
 import {Component, ViewEncapsulation} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -18,9 +19,16 @@ export class Dashboard {
   
   searchForRecipe(food) {
 	console.log("Searching for " + food);
+	/*this.http.get("http://localhost:3001/deviceall").toPromise().then( res =>{
+		console.log("found result");
+		console.log(res);
 
+	}, err =>{
+		console.log("Error")
+		console.log(err);
+	});*/
 	this.http.get("https://pumpout.anyhowstep.com/recipes/search/"+food).toPromise().then( res =>{
-		console.log("Found Result");
+		console.log("found result");
 		console.log(res.json().results);
 		this.recipes=res.json().results;
 
