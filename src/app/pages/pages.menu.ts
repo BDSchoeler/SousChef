@@ -18,7 +18,7 @@ export const PAGES_MENU = [
         path: 'recent',
         data: {
           menu: {
-            title: 'Recent Recipes',
+            title: 'Suggested Recipes',
             icon: 'ion-stats-bars',
             selected: false,
             expanded: false,

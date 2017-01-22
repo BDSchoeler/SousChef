@@ -189,6 +189,26 @@
       };
       request.send();
     }
+	
+	 function tts2 (sentence) {
+      if (sentence.length == 0) {
+        return;
+      }
+      var url     = "https://pumpout.anyhowstep.com/tts/"+encodeURIComponent(sentence);
+      var request = new XMLHttpRequest();
+      request.open("GET", url, true);
+      request.responseType = "arraybuffer";
+      request.onreadystatechange = function (event) {
+        console.log(request.status);
+        if (request.readyState === 4 && request.status === 200) {
+          var arrayBuffer = request.response;
+          if (arrayBuffer) {
+            audioPlayer.play(arrayBuffer);
+          }
+        }
+      };
+      request.send();
+    }
 </script>
 
 

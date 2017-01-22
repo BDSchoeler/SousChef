@@ -1,6 +1,7 @@
+<ba-card *ngFor="let recipe of recipeArray" class="col-md-6" (click)="redirectToRecipe(recipe.id)"[title]="recipe.title">
 
-<ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" title="Recent Recipes">
-	<div>
-		Recent searched recipes will be here.
-	</div>
+	<img style="width:400px;height:200px;horizontal-align:center;" src="{{recipe.img}}" onerror="this.src='http://i63.tinypic.com/20q1kk2.jpg'" />
+
 </ba-card>
+		
+

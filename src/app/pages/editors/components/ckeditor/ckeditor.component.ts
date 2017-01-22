@@ -31,6 +31,7 @@ export class Ckeditor {
   second;
   timerDone:boolean = false;
   timer;
+  timerOn:boolean = true;
 
 >>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290
   public ckeditorContent:string = '<p>Hello CKEditor</p>';
@@ -105,19 +106,20 @@ export class Ckeditor {
 =======
 
  startTimer(){
+	this.timerOn = false;
 	console.log("entered");
-	this.timer = Observable.timer(0, 1000);
-	console.log("entered");
-	this.timer.subscribe(t => {
+
+	this.timer = Observable.timer(0, 1000).subscribe(t => {
 	
 		if(this.second==0)
 		{
 			if(this.minute ==0)
 			{
 				this.timerDone = true;
+				this.timerOn= true;
 				//Above not needed? just run following method
-				finishedTimer();
-				this.timer.unsubscribe;
+				this.finishedTimer();
+				this.timer.unsubscribe();
 			}
 			else
 			{
@@ -135,11 +137,11 @@ export class Ckeditor {
  }
  
  finishedTimer(){
-	//Something should happen when timer runs out.
-	goToNext();
+	tts2("The timer is done! The timer is done! The timer is done!");
  }
  pauseTimer(){
-	 this.timer.unsubscribe;
+	 this.timerOn = true;
+	 this.timer.unsubscribe();
  }
   
 >>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290
