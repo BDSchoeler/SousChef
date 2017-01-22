@@ -20,6 +20,7 @@ import { Ckeditor } from './components/ckeditor/ckeditor.component';
   declarations: [
     Editors,
     Ckeditor
+	
   ]
 })
 export default class EditorsModule {

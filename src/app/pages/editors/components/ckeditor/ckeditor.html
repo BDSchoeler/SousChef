@@ -49,8 +49,9 @@
 	<!-- Interactions -->
 	<div class="col-md-5">
 
-		<ba-card title="Interaction" baCardClass="with-scroll button-panel large-card">
-			<div style="text-align:center;">
+		<ba-card title="Interaction" baCardClass="with-scroll">
+		<div styke="height:1000px;">
+			<div style="text-align:center">
 			
 				<!--
 				<div style="text-align:center;">	
@@ -77,15 +78,26 @@
 				</div>
 				
 				<br />
-				<div> 
-					<button type="button" class="btn btn-danger" style="height:80px; width:250px;">Timer</button>
+				<ba-card baCardClass="with-scroll">
+					<div class="btn-group" role="group"> 
+						<button type="button" class="btn btn-danger" style="height:80px; width:250px;" (click)="startTimer()" >Timer</button>
+					</div>
+			
+					<br />
+					<br />
+					<div>
+						
+						<span class="col-md-6">
+							<input #minInput [(ngModel)]="minute" type="text" class="form-control" id="input1" placeholder="Minute" style="height:50px; font-size:16px; text-align:right;">
+						</span>
+						<span class="col-md-6">
+							<input #secInput [(ngModel)]="second" type="text" class="form-control" id="input2" placeholder="Second" style="height:50px; font-size:15px;">
+						</span>
+				
 				</div>
-		
-				<br />
-				<p>
-					Timer should appear here
-				</p>
+				</ba-card>	
 			</div>
+		</div>
 		</ba-card>
 	</div>
 </div>
