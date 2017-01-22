@@ -1,3 +1,6 @@
+//declare var drawGauge: any;
+//var tts =require('./tts.js');
+
 import { Component, ViewEncapsulation } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -31,6 +34,7 @@ export class Ckeditor {
     console.log("Error")
     console.log(err);
   });
+  //let test= new tts.tts();
   
   }
 }
