@@ -1,3 +1,5 @@
+<a routerLink="/pages/recent/">test test test link</a>
+
 <ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
                title="Search For Recipe">
   <div class="form-group" style="height:100px">
@@ -15,8 +17,8 @@
 <ba-card *ngIf="recipes" class="col-xlg-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" >
 RESULTS
 </ba-card>
-<ba-card *ngFor="let recipe of recipes" class="col-md-6" [title]="recipe.title">
-	<img style="width:450px; height:225px;" [src]="recipe.img" />
+<ba-card *ngFor="let recipe of recipes" class="col-md-6" (click)="redirectToRecipe(recipe.id)"[title]="recipe.title">
+	<img  style="width:450px; height:225px;" [src]="recipe.img" />
 </ba-card>
   
 
