@@ -15,6 +15,7 @@ import './ckeditor.loader.ts';
 export class Ckeditor {
   recipeId=1583;
   recipe;
+  currentStep=0;
   public ckeditorContent:string = '<p>Hello CKEditor</p>';
   public config = {
     uiColor: '#F0F3F4',
@@ -32,5 +33,19 @@ export class Ckeditor {
     console.log(err);
   });
   
+  }
+  
+  goToNext() {
+	if(this.currentStep<this.recipe.instructions.length) {
+		console.log("going to next step");
+		this.currentStep = this.currentStep+1;
+	}
+  }
+  
+  goToPrev() {
+	if(this.currentStep>0) {
+		console.log("going to previous step");
+		this.currentStep = this.currentStep-1;
+	}
   }
 }
