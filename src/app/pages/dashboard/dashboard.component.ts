@@ -3,6 +3,8 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+
+import { ActivatedRoute, Router,Params }   from '@angular/router';
 @Component({
   selector: 'dashboard',
   encapsulation: ViewEncapsulation.None,
@@ -11,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class Dashboard {
   recipes;
-  constructor(private http:Http) {
+  constructor(private http:Http, private router:Router, private route: ActivatedRoute) {
   }
   
   searchForRecipe(food) {
@@ -28,5 +30,10 @@ export class Dashboard {
 	});
 	
   }
+  redirectToRecipe(id){
+  	console.log("trying to change page")
+  	//this.router.navigate(['#/pages/editors/ckeditor/'+ id]);
+  	this.router.navigate(['/pages/editors/ckeditor/'+ id]);
 
+  }
 }
