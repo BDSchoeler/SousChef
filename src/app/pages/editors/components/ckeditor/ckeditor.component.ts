@@ -21,9 +21,6 @@ export class Ckeditor {
   currentStepValue="Click start to begin cooking";
   recipeId=1583;
   recipe;
-<<<<<<< HEAD
-  currentStep=0;
-=======
 
   currentStep=-1;
 
@@ -33,7 +30,7 @@ export class Ckeditor {
   timer;
   timerOn:boolean = true;
 
->>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290
+
   public ckeditorContent:string = '<p>Hello CKEditor</p>';
   public config = {
     uiColor: '#F0F3F4',
@@ -83,27 +80,7 @@ export class Ckeditor {
     this.currentStepValue=this.recipe.instructions[this.currentStep];
 	}
   }
-<<<<<<< HEAD
-  
-  goToNext(){
-  	
-	if(this.currentStep < this.recipe.instructions.length) {
-		console.log("going to next step");
-		this.currentStep=this.currentStep+1;
-	}
 
-	
-  }
-  
-  goToPrev() {
-	
-	if(this.currentStep>0) {
-		console.log("going to previous step");
-		this.currentStep=this.currentStep-1;
-	}
-		
-  }
-=======
 
  startTimer(){
 	this.timerOn = false;
@@ -143,6 +120,86 @@ export class Ckeditor {
 	 this.timerOn = true;
 	 this.timer.unsubscribe();
  }
+  chef () {
+      var query = "search tomato";
+      if (query.length == 0) {
+        return;
+      }
+      var url     = "https://pumpout.anyhowstep.com/chef/"+encodeURIComponent(query);
+      var request = new XMLHttpRequest();
+      request.open("GET", url, true);
+      request.responseType = "json";
+      request.send();
+      request.onreadystatechange = function (event) {
+        if (request.readyState === 4 && request.status === 200) {
+          var data = request.response;
+          console.log(data);
+          if (data && data.intent) {
+            data = data.intent;
+            if (data.entities.intent) {
+              var intent = data.entities.intent;
+              switch (intent.value) {
+                case "Pause Timer": {
+                  break;
+                }
+                case "Resume Timer": {
+                  break;
+                }
+                case "Set Timer": {
+                  if (data.entities.duration) {
+                    var total_seconds = 0;
+                    for (var i=0; i<data.entities.duration.length; ++i) {
+                      var d = data.entities.duration[i];
+                      total_seconds += d.normalized.value;
+                    }
+                    if (total_seconds > 0) {
+                      //Set the timer
+                    }
+                  }
+                  break;
+                }
+                case "Search For Food": {
+                  if (data.entities.Food && data.entities.Food.length > 0) {
+                    var food = data.entities.Food[0].value;
+                    //Search for food
+                  }
+                  break;
+                }
+                case "Select Recipe": {
+                  if (data.entities.ordinal && data.entities.ordinal > 0) {
+                    var index = data.entities.ordinal[0].value - 1; //To make is a 0-based index for internal use
+                    //Select the indexed recipe, if valid
+                  }
+                  break;
+                }
+                case "Change Instruction": {
+                  if (data.entities.Change_Type && data.entities.Change_Type.length > 0) {
+                    var type = data.entities.Change_Type[0].value;
+                    switch (type) {
+                      case "next":
+                      case "Next": {
+                        //Next instruction
+                        break;
+                      }
+                      case "previous":
+                      case "Previous": {
+                        //Previous instruction
+                        break;
+                      }
+                      case "repeat":
+                      case "Repeat": {
+                        //Repeat instruction
+                        break;
+                      }
+                    }
+                  }
+                  break;
+                }
+              }
+            }
+          }
+        }
+      };
+    }
   
->>>>>>> 26bcd5c21a72f042f71877ca2f77890db5df1290
 }
